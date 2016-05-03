@@ -1,0 +1,8 @@
+FROM mysql:5.7
+
+ENV MYSQL_ROOT_PASSWORD 9muses
+ENV MYSQL_DATABASE develop
+ENV MYSQL_USER 9muses
+ENV MYSQL_PASSWORD 9muses
+
+ADD docker-entrypoint-initdb.d /docker-entrypoint-initdb.d

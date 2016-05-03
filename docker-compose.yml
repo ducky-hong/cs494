@@ -1,0 +1,28 @@
+version: '2'
+services:
+    api:
+        build: .
+        image: cs494/api
+        ports:
+        - "4567:4567"
+        links:
+        - mysql
+        - arcus
+        - nbase-arc
+        environment:
+        - DB_HOST=mysql
+        - DB_USERNAME=9muses
+        - DB_PASSWORD=9muses
+        - ARCUS_HOST=arcus
+        - NBASE_ARC_HOST=nbase-arc
+        - RACK_ENV=production
+    mysql:
+        build:
+            context: .
+            dockerfile: Dockerfile.mysql
+        image: cs494/mysql
+    arcus:
+        image: memcached
+    nbase-arc:
+        image: redis
+
