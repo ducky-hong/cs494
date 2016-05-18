@@ -22,7 +22,7 @@ services:
             dockerfile: Dockerfile.mysql
         image: cs494/mysql
     arcus:
-        image: memcached
+        image: cs494/arcus-memcached
     nbase-arc:
-        image: redis
+        image: cs494/nbase-arc
 
