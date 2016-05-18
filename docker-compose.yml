@@ -25,4 +25,20 @@ services:
         image: cs494/arcus-memcached
     nbase-arc:
         image: cs494/nbase-arc
+    hubblemon:
+        image: cs494/hubblemon-server
+        ports:
+        - "8888:8888"
+    ngrinder-web:
+        image: ngrinder/controller:3.3
+        ports:
+        - "16001:16001"
+        - "12000-12009:12000-12009"
+        - "8999:80"
+    ngrinder-agent:
+        image: ngrinder/agent:3.3
+        links:
+        - ngrinder-web
+        environment:
+        - CONTROLLER_ADDR=ngrinder-web:80
 
